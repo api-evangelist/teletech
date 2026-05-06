@@ -1,130 +1,67 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: TTEC Holdings
+providerId: teletech
+created: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
+tags:
+  - FinOps
+  - FOCUS
+  - Customer Experience
+  - BPO
+description: >-
+  FOCUS-aligned FinOps scaffold for TTEC Holdings. TTEC engagements are sales-led professional services
+  / managed services contracts; there is no public usage-based price list to map to FOCUS columns until
+  a specific engagement is in place.
+sources:
+  - https://www.ttec.com/digital
+  - https://www.ttec.com/contact-us
+  - https://focus.finops.org/focus-specification/v1-3/
+notes: >-
+  No public API or usage telemetry exists. Reconciliation is engagement-specific and pending direct sales
+  contact.
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
   dataSpec: FOCUS
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
-provider: TTEC Holdings
-providerId: teletech
-publisherName: TTEC Holdings
-serviceCategory: API
-created: '2026-05-04'
-modified: '2026-05-04'
-tags:
-  - Customer Experience
-  - Technology
-  - BPO
-  - FinOps
-  - Cost Management
-  - FOCUS
-description: FinOps framework definition for the TTEC Holdings API surface. Provides a FOCUS-aligned mapping
-  for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+publisherName: TTEC Holdings, Inc.
+serviceCategory: Customer Experience Services
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Subscription
+  billingFrequency: Per-Invoice
   billingCurrency: USD
   chargeCategories:
-    - Usage
     - Purchase
-    - Tax
-    - Credit
-    - Adjustment
-  chargeFrequency: Recurring
 focusColumns:
   ServiceName: TTEC Holdings
-  ServiceCategory: Developer Tools / API
+  ServiceCategory: Customer Experience Services
   ProviderName: TTEC Holdings
-  PublisherName: TTEC Holdings
-  InvoiceIssuerName: TTEC Holdings
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  PublisherName: TTEC Holdings, Inc.
+  InvoiceIssuerName: TTEC Holdings, Inc.
   BillingCurrency: USD
-  ChargeCategory: Usage
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
+  - name: engagement_charges
+    unit: varies
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
-    aggregation: sum
-    dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: TTEC Holdings API
-    baseURL: https://api.ttec.com
-    tags:
-      - Customer Experience
-      - Technology
-      - BPO
-    serviceName: TTEC Holdings API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+      - engagement_id
+principles:
+  - name: Visibility
+    description: Engagement invoices and TTEC client portal reports are the primary visibility surface;
+      no programmatic usage API is published.
+  - name: Allocation
+    description: Allocate spend per TTEC engagement / business unit based on invoice line items defined
+      in the master service agreement.
+  - name: Optimization
+    description: Renegotiate scope, seat counts, and AHT-driven pricing levers at contract review windows
+      with the TTEC account team.
+  - name: Accountability
+    description: Engagement owner inside the customer organization owns TTEC spend and reviews invoices
+      and KPIs against the SOW.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
