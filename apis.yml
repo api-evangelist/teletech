@@ -28,6 +28,8 @@ apis:
     description: >-
       The TTEC Holdings API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/ttec
   - type: Website
     url: https://www.ttec.com
 maintainers:
