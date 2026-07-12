@@ -28,10 +28,14 @@ apis:
     description: >-
       The TTEC Holdings API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: DomainSecurity
+    url: security/teletech-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/ttec
   - type: Website
     url: https://www.ttec.com
+  - type: Blog
+    url: https://www.ttec.com/blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
