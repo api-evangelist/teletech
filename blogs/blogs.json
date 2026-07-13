@@ -1,0 +1,15 @@
+{
+  "repo": "teletech",
+  "feeds": [
+    {
+      "source": "https://www.ttec.com/blog",
+      "error": "HTTPError"
+    },
+    {
+      "source": "https://www.ttec.com",
+      "error": "HTTPError"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 13
+}
